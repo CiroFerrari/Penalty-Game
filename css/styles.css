@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  /* Gradient in all green from top to bottom */
+  background-image: linear-gradient(to bottom, #00b09b, #96c93d);
+  height: 100vh;
+  cursor: url('../images/pelota-img.png'), auto;
+}
+
+main {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 100vh;
+  overflow-y: hidden;
+}
+
+img.arco {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  /* To make the image responsive */
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+img.arquero {
+  /* center the image horizontally calculating the width of the image */
+  left: calc(50% - 12.5vw);
+  width: 25vw;
+  height: auto;
+  /* To make the image responsive */
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
+img.pelota {
+  /* position: absolute; */
+  width: 5vw;
+  height: auto;
+  z-index: 2;
+  margin-top: auto;
+}
+
+/* Class to move arquero to the left with transition */
+.arquero-izquierda {
+  transform: translateX(-30vw);
+  transition: all 1s ease-in-out;
+}
+
+/* Class to move arquero to the right with transition */
+.arquero-derecha {
+  transform: translateX(30vw);
+  transition: all 1s ease-in-out;
+}
+
+.arco-section {
+  width: 90vw;
+  height: 30vw;
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  z-index: 3;
+  cursor: url('../images/pelota-img.png'), auto;
+}
+
+.mayor-section {
+  width: 90vw;
+  height: 50vw;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.pelota-derecha {
+  transform: translate(30vw, -15vw);
+  transition: all 1s ease-in-out;
+}
+
+.pelota-izquierda {
+  transform: translate(-30vw, -15vw);
+  transition: all 1s ease-in-out;
+}
+
+.pelota-centro {
+  transform: translate(0, -15vw);
+  transition: all 1s ease-in-out;
+}
+
+.reset-button {
+  display: none;
+  width: fit-content;
+  height: auto;
+  z-index: 2;
+  cursor: pointer;
+  border: solid black 1px;
+  background-color: transparent;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+}
+
+p.resultado {
+  width: fit-content;
+  height: auto;
+  z-index: 2;
+  /* Some nice styles to the button */
+  background-color: transparent;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  /* Underline */
+  text-decoration: underline;
+  text-decoration-color: black;
+  text-decoration-thickness: 0.2rem;
+  text-decoration-style: double;
+}
+
+/* Media query max-width:1023px */
+@media (max-width: 1023px) {
+  .mayor-section {
+    height: 80vw;
+    max-height: 80vh;
+  }
+
+  .pelota-centro {
+    transform: translate(0, -30vw);
+  }
+
+  .pelota-derecha {
+    transform: translate(30vw, -30vw);
+  }
+
+  .pelota-izquierda {
+    transform: translate(-30vw, -30vw);
+  }
+}
+
+/* Media query max-width: 767px */
+@media (max-width: 767px) {
+  .mayor-section {
+    height: 80vw;
+    max-height: 80vh;
+  }
+
+  .pelota-centro {
+    transform: translate(0, -20vw);
+  }
+
+  .pelota-derecha {
+    transform: translate(30vw, -20vw);
+  }
+
+  .pelota-izquierda {
+    transform: translate(-30vw, -20vw);
+  }
+}
